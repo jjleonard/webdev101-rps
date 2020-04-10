@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+
+  <body>
+
+  </body>
+  <script>
+    let playerSelection, computerSelection, gameCount;
+
+    function computerPlay() {
+        let options=["rock", "paper", "scissors"];
+        let num = Math.floor(Math.random() * 3);
+        return options[num];
+    }
+
+    function playRound(player, computer) {
+        let result;
+        player = player.toLowerCase();
+        if (player == computer) result = "Draw!";
+        if (player == "rock" && computer == "paper") result = "You Lose! Paper covers Rock!";
+        if (player == "rock" && computer == "scissors") result = "You Win! Rock breaks Scissors!";
+        if (player == "paper" && computer == "rock") result = "You Win! Paper covers Rock!";
+        if (player == "paper" && computer == "scissors") result = "You Lose! Scissors cut Paper!";
+        if (player == "scissors" && computer == "rock") result = "You Lose! Rock breaks Scissors!";
+        if (player == "scissors" && computer == "paper") result = "You Win! Scissors cut Paper!";
+        return result;
+    }
+
+    function game(num) {
+        for (let i=0; i<num; i++) {
+            playerSelection = prompt("Rock, Paper, or Scissors?");
+            computerSelection = computerPlay();
+            console.log("Computer calls " + computerSelection);
+            console.log(playRound(playerSelection, computerSelection));
+        }
+    }
+
+    gameCount = prompt("How many games?",1);
+    game(gameCount);
+
+  </script>
+
+</html>
